@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#58b947"><title>لینگوفارسی | انگلیسی با فارسی</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--green:#58b947;--dark:#277b32;--ink:#263238;--muted:#718096;--bg:#f6faf5;--line:#e2eadf;--card:#fff;--red:#ef5266;--gold:#e6a72e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,"Segoe UI",sans-serif;color:var(--ink)}
+button{font:inherit;cursor:pointer;border:0}.app{max-width:980px;margin:auto;min-height:100vh;padding-bottom:85px}
+header{position:sticky;top:0;z-index:5;background:#ffffffed;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--dark);font-size:21px}.owl{width:42px;height:42px;border-radius:14px;background:#e6f7df;display:grid;place-items:center;font-size:27px}
+.stats{display:flex;gap:12px;font-weight:bold}.stat{background:#f5f7f2;padding:8px 11px;border-radius:12px}
+main{padding:22px 16px}.hero{background:linear-gradient(120deg,#e5f8df,#f4fbe9);border:1px solid #d8edcf;border-radius:22px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hero h1{font-size:25px;margin:0 0 8px}.hero p{margin:0;color:#55705a;line-height:1.8}.hero .mascot{font-size:76px}
+.section-title{font-size:20px;margin:28px 4px 14px}.path{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;text-align:right;box-shadow:0 3px 10px #183b1510;position:relative}
+.lesson .emoji{font-size:30px}.lesson h3{margin:8px 0 5px}.lesson p{color:var(--muted);font-size:13px;margin:0 0 13px}
+.pill{display:inline-block;border-radius:99px;background:#edf8e9;color:#387e31;padding:5px 9px;font-size:12px;font-weight:bold}
+.lesson button,.primary{background:var(--green);color:white;border-radius:13px;padding:11px 15px;font-weight:bold;width:100%;box-shadow:0 4px 0 var(--dark)}
+.lesson button:disabled{background:#cbd5c8;box-shadow:0 4px 0 #aeb9aa;cursor:not-allowed}
+.progress{height:9px;background:#e5ece2;border-radius:99px;overflow:hidden;margin-top:10px}.progress span{display:block;height:100%;background:var(--green)}
+.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:18px}
+.hidden{display:none!important}.center{text-align:center}.muted{color:var(--muted)}.bigword{font-size:34px;font-weight:900;margin:12px}.sound{background:#eaf7e6;color:#287b32;border-radius:50%;width:48px;height:48px;font-size:22px}
+.answers{display:grid;gap:10px;margin:20px 0}.answer{padding:14px;border:2px solid var(--line);border-radius:13px;background:white;text-align:right;font-weight:bold}.answer.selected{border-color:var(--green);background:#f0faed}.answer.correct{border-color:var(--green);background:#eaf8e5}.answer.wrong{border-color:var(--red);background:#fff0f1}
+.feedback{padding:13px;border-radius:12px;margin:14px 0;font-weight:bold}.good{background:#eaf8e5;color:#287b32}.bad{background:#fff0f1;color:#b52e40}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;gap:clamp(18px,8vw,70px);padding:10px;z-index:6}.nav{background:transparent;color:#68776a;font-size:12px;display:grid;gap:3px;justify-items:center}.nav b{font-size:22px}.nav.active{color:var(--dark);font-weight:bold}
+.wordrow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+input{font:inherit;padding:12px;border:1px solid var(--line);border-radius:12px;width:100%}
+@media(max-width:560px){.path{grid-template-columns:1fr}.hero h1{font-size:21px}.stats{gap:5px}.stat{padding:7px;font-size:12px}.hero .mascot{font-size:58px}}
+</style></head>
+<body><div class="app">
+<header><div class="brand"><div class="owl">🦉</div><span>لینگوفارسی</span></div><div class="stats"><div class="stat">🔥 <span id="streak">1</span></div><div class="stat">❤️ <span id="hearts">5</span></div><div class="stat">⚡ <span id="xp">0</span></div></div></header>
+<main>
+<section id="home">
+<div class="hero"><div><h1>هر روز یک قدم به انگلیسی نزدیک‌تر! 🌱</h1><p>درس‌های کوتاه و سرگرم‌کننده، با توضیح کاملاً فارسی.<br>از پایه شروع کن و پیشرفتت رو ببین.</p></div><div class="mascot">🦉</div></div>
+<h2 class="section-title">مسیر یادگیری تو</h2><div class="path" id="lessonPath"></div>
+<div class="panel"><b>🎯 هدف امروز</b><p class="muted">برای امروز ۲۰ امتیاز بگیر؛ حتی چند دقیقه تمرین هم ارزشمنده.</p><div class="progress"><span id="dailyBar" style="width:0%"></span></div><small id="dailyText" class="muted">۰ از ۲۰ XP</small></div>
+</section>
+<section id="learn" class="hidden">
+<div class="panel" id="quizPanel">
+<div style="display:flex;justify-content:space-between"><span class="pill" id="lessonTag">درس ۱</span><span class="muted" id="qCount">۱ از ۵</span></div>
+<div class="progress"><span id="quizProgress" style="width:20%"></span></div>
+<p class="muted center" style="margin-top:25px">معنی این کلمه چیست؟</p><div class="center"><div class="bigword" id="questionWord">Apple</div><button class="sound" id="speak" aria-label="پخش تلفظ">🔊</button><p class="muted">برای شنیدن تلفظ، دکمه بلندگو را بزن.</p></div>
+<div class="answers" id="answers"></div><div id="feedback"></div><button class="primary" id="checkBtn" disabled>بررسی پاسخ</button>
+</div>
+<div class="panel hidden center" id="resultPanel"><div style="font-size:60px">🏆</div><h2>آفرین! این درس تموم شد.</h2><p id="resultText" class="muted"></p><button class="primary" id="backHome">بازگشت به مسیر یادگیری</button></div>
+</section>
+<section id="sentences" class="hidden">
+<div class="panel"><span class="pill">تمرین جمله‌سازی</span><h2>کلمات را مرتب کن ✍️</h2><p class="muted">جمله انگلیسی درست را با انتخاب کلمات بساز.</p><div class="center" style="font-size:21px;font-weight:bold;margin:20px 0" id="sentencePrompt">من یک سیب دارم.</div><div id="sentencePool" class="answers"></div><div class="panel" style="min-height:58px" id="sentenceBuild">کلمات انتخابی اینجا نمایش داده می‌شوند.</div><div id="sentenceFeedback"></div><button class="primary" id="sentenceCheck" disabled>بررسی جمله</button></div>
+</section>
+<section id="placement" class="hidden"><div class="panel" id="placementPanel"><span class="pill">آزمون تعیین سطح</span><h2>ببینیم از کجا شروع کنیم 🎯</h2><p class="muted">به ۵ پرسش پاسخ بده.</p><div id="placementQ"></div><button class="primary" id="placementNext" disabled>پرسش بعدی</button></div><div class="panel hidden center" id="placementResult"><div style="font-size:52px">🎓</div><h2>نتیجه آزمون</h2><p id="placementScore"></p><button class="primary" id="placementHome">رفتن به مسیر یادگیری</button></div></section>
+<section id="vocab" class="hidden"><h2>📚 دفتر لغات من</h2><p class="muted">کلماتی که در درس‌ها یاد می‌گیری اینجا جمع می‌شن.</p><div class="panel" id="wordList"></div></section>
+<section id="profile" class="hidden"><h2>👤 پروفایل یادگیری</h2><div class="panel"><h3>آمار تو</h3><div class="wordrow"><span>امتیاز کل</span><b id="pXp">۰ XP</b></div><div class="wordrow"><span>درس‌های تکمیل‌شده</span><b id="pLessons">۰</b></div><div class="wordrow"><span>زنجیره روزانه</span><b id="pStreak">۱ روز</b></div><div class="wordrow"><span>سطح فعلی</span><b>مبتدی A1</b></div><p class="muted">پیشرفت این نسخه روی همین دستگاه ذخیره می‌شود.</p><button class="primary" id="resetBtn" style="background:#e85b68;box-shadow:0 4px 0 #b83d4b">بازنشانی پیشرفت</button></div></section>
+</main>
+<nav class="bottom"><button class="nav active" data-tab="home"><b>🏡</b>خانه</button><button class="nav" data-tab="vocab"><b>📖</b>لغات</button>
+<button class="nav" data-tab="sentences"><b>✍️</b>جمله</button>
+<button class="nav" data-tab="placement"><b>🎯</b>تعیین سطح</button><button class="nav" data-tab="profile"><b>👤</b>پروفایل</button></nav>
+</div>
+<script>
+const lessons=[
+{title:"سلام و احوال‌پرسی",desc:"سلام کردن و معرفی خود",emoji:"👋",words:[["Hello","سلام"],["Hi","سلام (خودمانی)"],["Goodbye","خداحافظ"],["Please","لطفاً"],["Thanks","ممنون"]]},
+{title:"چیزهای روزمره",desc:"اشیای ساده اطراف ما",emoji:"🍎",words:[["Apple","سیب"],["Book","کتاب"],["Water","آب"],["House","خانه"],["Phone","تلفن"]]},
+{title:"آدم‌ها و خانواده",desc:"کلمات مربوط به خانواده",emoji:"👨‍👩‍👧",words:[["Mother","مادر"],["Father","پدر"],["Sister","خواهر"],["Brother","برادر"],["Friend","دوست"]]},
+{title:"عددها",desc:"از یک تا پنج",emoji:"🔢",words:[["One","یک"],["Two","دو"],["Three","سه"],["Four","چهار"],["Five","پنج"]]},
+{title:"رنگ‌ها",desc:"رنگ‌های پرکاربرد",emoji:"🎨",words:[["Red","قرمز"],["Blue","آبی"],["Green","سبز"],["Black","سیاه"],["White","سفید"]]},
+{title:"خوراکی‌ها",desc:"غذا و نوشیدنی",emoji:"🍞",words:[["Bread","نان"],["Milk","شیر"],["Rice","برنج"],["Tea","چای"],["Coffee","قهوه"]]},
+{title:"حیوانات",desc:"نام چند حیوان",emoji:"🐱",words:[["Cat","گربه"],["Dog","سگ"],["Bird","پرنده"],["Fish","ماهی"],["Horse","اسب"]]},
+{title:"خانه",desc:"اتاق‌ها و وسایل",emoji:"🏠",words:[["Door","در"],["Window","پنجره"],["Table","میز"],["Chair","صندلی"],["Room","اتاق"]]},
+{title:"زمان",desc:"روزها و زمان",emoji:"⏰",words:[["Today","امروز"],["Tomorrow","فردا"],["Yesterday","دیروز"],["Morning","صبح"],["Night","شب"]]},
+{title:"فعل‌های ساده",desc:"کارهای روزمره",emoji:"🏃",words:[["Go","رفتن"],["Come","آمدن"],["Eat","خوردن"],["Drink","نوشیدن"],["Sleep","خوابیدن"]]},
+{title:"صفت‌ها",desc:"توصیف ساده",emoji:"✨",words:[["Big","بزرگ"],["Small","کوچک"],["Good","خوب"],["Bad","بد"],["Happy","خوشحال"]]},
+{title:"مکان‌ها",desc:"جاهای شهر",emoji:"🏙️",words:[["School","مدرسه"],["Shop","مغازه"],["Park","پارک"],["Hospital","بیمارستان"],["Street","خیابان"]]},
+{title:"بدن",desc:"اعضای بدن",emoji:"🧍",words:[["Head","سر"],["Hand","دست"],["Eye","چشم"],["Foot","پا"],["Mouth","دهان"]]},
+{title:"پوشاک",desc:"لباس‌های ساده",emoji:"👕",words:[["Shirt","پیراهن"],["Shoes","کفش"],["Hat","کلاه"],["Coat","پالتو"],["Dress","لباس"]]},
+{title:"حمل‌ونقل",desc:"رفت‌وآمد",emoji:"🚌",words:[["Bus","اتوبوس"],["Car","ماشین"],["Train","قطار"],["Bicycle","دوچرخه"],["Taxi","تاکسی"]]},
+{title:"آب‌وهوا",desc:"توصیف هوا",emoji:"🌦️",words:[["Sun","خورشید"],["Rain","باران"],["Snow","برف"],["Wind","باد"],["Cloud","ابر"]]},
+{title:"جمله‌های کاربردی",desc:"عبارت‌های ضروری",emoji:"💬",words:[["How are you?","حالت چطوره؟"],["I am fine.","من خوبم."],["Thank you.","متشکرم."],["Excuse me.","ببخشید."],["I understand.","متوجه می‌شوم."]]},
+{title:"خانواده بیشتر",desc:"اعضای خانواده",emoji:"👪",words:[["Parents","والدین"],["Son","پسر"],["Daughter","دختر"],["Grandmother","مادربزرگ"],["Grandfather","پدربزرگ"]]},
+{title:"مرور سطح A1",desc:"جمع‌بندی واژگان پایه",emoji:"🏅",words:[["Beautiful","زیبا"],["Important","مهم"],["Always","همیشه"],["Sometimes","گاهی"],["Never","هرگز"]]}
+];
+const $=id=>document.getElementById(id);
+let state=JSON.parse(localStorage.getItem("lfState")||'{"xp":0,"hearts":5,"done":[],"streak":1,"today":0,"vocab":[]}');
+let current=0,index=0,selected=-1,wrong=false;
+function save(){localStorage.setItem("lfState",JSON.stringify(state));renderStats()}
+function renderStats(){$("xp").textContent=state.xp;$("hearts").textContent=state.hearts;$("streak").textContent=state.streak;$("pXp").textContent=state.xp+" XP";$("pLessons").textContent=state.done.length;$("pStreak").textContent=state.streak+" روز";$("dailyBar").style.width=Math.min(100,state.today/20*100)+"%";$("dailyText").textContent=state.today+" از ۲۰ XP"}
+function renderHome(){$("lessonPath").innerHTML=lessons.map((l,i)=>`<article class="lesson"><div class="emoji">${l.emoji}</div><h3>${i+1}. ${l.title}</h3><p>${l.desc}</p><span class="pill">${state.done.includes(i)?"✓ تکمیل‌شده":i===0||state.done.includes(i-1)?"آماده شروع":"🔒 قفل"}</span><div class="progress"><span style="width:${state.done.includes(i)?100:0}%"></span></div><button style="margin-top:14px" data-lesson="${i}" ${i!==0&&!state.done.includes(i-1)?"disabled":""}>${state.done.includes(i)?"مرور درس":"شروع درس"}</button></article>`).join("");document.querySelectorAll("[data-lesson]").forEach(b=>b.onclick=()=>startLesson(+b.dataset.lesson))}
+function showTab(tab){["home","learn","vocab","profile","placement","sentences"].forEach(t=>$(t).classList.toggle("hidden",t!==tab));document.querySelectorAll(".nav").forEach(n=>n.classList.toggle("active",n.dataset.tab===tab));if(tab==="vocab")renderVocab();if(tab==="profile")renderStats()}
+document.querySelectorAll(".nav").forEach(n=>n.onclick=()=>showTab(n.dataset.tab));
+function startLesson(i){if(state.hearts<=0){alert("قلب‌هات تموم شده! بعداً دوباره تمرین کن.");return}current=i;index=0;selected=-1;wrong=false;showTab("learn");$("quizPanel").classList.remove("hidden");$("resultPanel").classList.add("hidden");renderQuestion()}
+function renderQuestion(){let l=lessons[current],w=l.words[index];$("lessonTag").textContent="درس "+(current+1);$("qCount").textContent=(index+1)+" از "+l.words.length;$("quizProgress").style.width=((index+1)/l.words.length*100)+"%";$("questionWord").textContent=w[0];$("feedback").innerHTML="";$("checkBtn").textContent="بررسی پاسخ";$("checkBtn").disabled=true;selected=-1;let opts=[w[1]];while(opts.length<4){let candidate=lessons.flatMap(x=>x.words.map(z=>z[1]))[Math.floor(Math.random()*lessons.flatMap(x=>x.words).length)];if(!opts.includes(candidate))opts.push(candidate)}opts.sort(()=>Math.random()-.5);$("answers").innerHTML=opts.map((o,j)=>`<button class="answer" data-opt="${j}">${o}</button>`).join("");document.querySelectorAll("[data-opt]").forEach(b=>b.onclick=()=>{selected=+b.dataset.opt;document.querySelectorAll(".answer").forEach(x=>x.classList.toggle("selected",+x.dataset.opt===selected));$("checkBtn").disabled=false})}
+$("speak").onclick=()=>{let utter=new SpeechSynthesisUtterance(lessons[current].words[index][0]);utter.lang="en-US";speechSynthesis.speak(utter)};
+$("checkBtn").onclick=()=>{let l=lessons[current],correct=l.words[index][1],chosen=document.querySelector(`[data-opt="${selected}"]`);if($("checkBtn").textContent==="ادامه"){index++;if(index>=l.words.length)finishLesson();else renderQuestion();return}if(chosen.textContent===correct){chosen.classList.add("correct");$("feedback").innerHTML='<div class="feedback good">آفرین! پاسخ درست است 🎉</div>';state.xp+=5;state.today+=5;state.vocab=[...new Set([...state.vocab,l.words[index][0]])];}else{chosen.classList.add("wrong");$("feedback").innerHTML=`<div class="feedback bad">پاسخ درست: ${correct} — اشکالی نداره، ادامه بده.</div>`;state.hearts=Math.max(0,state.hearts-1)}save();$("checkBtn").textContent="ادامه";$("checkBtn").disabled=false};
+function finishLesson(){if(!state.done.includes(current))state.done.push(current);save();$("quizPanel").classList.add("hidden");$("resultPanel").classList.remove("hidden");$("resultText").textContent="۵ کلمه تمرین شد. امتیاز کل تو: "+state.xp+" XP";renderHome()}
+$("backHome").onclick=()=>showTab("home");
+function renderVocab(){let all=lessons.flatMap(l=>l.words).filter(w=>state.vocab.includes(w[0]));$("wordList").innerHTML=all.length?all.map(w=>`<div class="wordrow"><b>${w[0]}</b><span>${w[1]}</span><button class="sound" style="width:36px;height:36px" onclick="say('${w[0]}')">🔊</button></div>`).join(""):"هنوز لغتی ثبت نشده؛ اولین درس رو شروع کن!"}
+function say(word){let u=new SpeechSynthesisUtterance(word);u.lang="en-US";speechSynthesis.speak(u)}
+$("resetBtn").onclick=()=>{if(confirm("همه پیشرفتت پاک شود؟")){state={xp:0,hearts:5,done:[],streak:1,today:0,vocab:[]};save();renderHome()}}
+
+const placementItems=[
+{q:"معنی Hello چیست؟",a:["سلام","خداحافظ","لطفاً"],c:0},
+{q:"کدام گزینه یعنی «کتاب»؟",a:["Apple","Book","Water"],c:1},
+{q:"معنی I am happy چیست؟",a:["من خسته‌ام","من خوشحالم","من گرسنه‌ام"],c:1},
+{q:"She ___ a student.",a:["am","are","is"],c:2},
+{q:"معنی Tomorrow چیست؟",a:["دیروز","امروز","فردا"],c:2}
+];
+let pi=0,ps=0,pc=-1;
+function drawPlacement(){let q=placementItems[pi];pc=-1;$("placementQ").innerHTML=`<h3>پرسش ${pi+1} از ۵</h3><p><b>${q.q}</b></p><div class="answers">${q.a.map((a,i)=>`<button class="answer" data-place="${i}">${a}</button>`).join("")}</div>`;document.querySelectorAll("[data-place]").forEach(b=>b.onclick=()=>{pc=+b.dataset.place;document.querySelectorAll("[data-place]").forEach(x=>x.classList.toggle("selected",+x.dataset.place===pc));$("placementNext").disabled=false});$("placementNext").textContent=pi===4?"دیدن نتیجه":"پرسش بعدی";$("placementNext").disabled=true}
+$("placementNext").onclick=()=>{if(pc===placementItems[pi].c)ps++;pi++;if(pi<5)drawPlacement();else{$("placementPanel").classList.add("hidden");$("placementResult").classList.remove("hidden");$("placementScore").textContent=ps+" پاسخ درست از ۵. "+(ps<2?"پیشنهاد: از درس اول شروع کن.":ps<4?"پیشنهاد: درس‌های پایه را مرور کن.":"پیشنهاد: با سرعت بیشتری در مسیر A1 پیش برو.")}};
+$("placementHome").onclick=()=>{pi=0;ps=0;$("placementPanel").classList.remove("hidden");$("placementResult").classList.add("hidden");showTab("home")};
+drawPlacement();
+const sentenceData=[
+{fa:"من یک سیب دارم.",words:["I","have","an","apple"],answer:"I have an apple"},
+{fa:"او خوشحال است.",words:["She","is","happy"],answer:"She is happy"},
+{fa:"من آب می‌نوشم.",words:["I","drink","water"],answer:"I drink water"},
+{fa:"این یک کتاب است.",words:["This","is","a","book"],answer:"This is a book"}
+];
+let si=0,sc=[];
+function drawSentence(){let s=sentenceData[si];sc=[];$("sentencePrompt").textContent=s.fa;$("sentenceBuild").textContent="کلمات انتخابی اینجا نمایش داده می‌شوند.";$("sentenceFeedback").innerHTML="";$("sentenceCheck").disabled=true;$("sentenceCheck").textContent="بررسی جمله";$("sentencePool").innerHTML=[...s.words].sort(()=>Math.random()-.5).map((w,i)=>`<button class="answer" data-word="${i}">${w}</button>`).join("");document.querySelectorAll("[data-word]").forEach(b=>b.onclick=()=>{if(b.disabled)return;b.disabled=true;b.classList.add("selected");sc.push(b.textContent);$("sentenceBuild").textContent=sc.join(" ");$("sentenceCheck").disabled=false})}
+$("sentenceCheck").onclick=()=>{if($("sentenceCheck").textContent==="جمله بعدی"){si=(si+1)%sentenceData.length;drawSentence();return}if(sc.join(" ")===sentenceData[si].answer){$("sentenceFeedback").innerHTML='<div class="feedback good">درست ساختی! +۵ XP 🎉</div>';state.xp+=5;state.today+=5;save()}else{$("sentenceFeedback").innerHTML='<div class="feedback bad">ترتیب درست: '+sentenceData[si].answer+'</div>'}$("sentenceCheck").textContent="جمله بعدی"};
+drawSentence();
+
+renderStats();renderHome();
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+</script></body></html>
